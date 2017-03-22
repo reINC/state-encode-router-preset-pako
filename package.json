@@ -1,0 +1,39 @@
+{
+  "name": "state-encode-router-preset-pako",
+  "version": "0.1.0",
+  "description": "state-encode-router preset for zlib compression via pako",
+  "keywords": [
+    "router",
+    "state",
+    "zlib",
+    "pako",
+    "redux"
+  ],
+  "author": "reINC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reINC/state-encode-router-preset-pako.git"
+  },
+  "bugs": {
+    "url": "https://github.com/reINC/state-encode-router-preset-pako/issues"
+  },
+  "homepage": "https://github.com/reINC/state-encode-router-preset-pako#readme",
+  "main": "dist\\index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublish": "webpack"
+  },
+  "dependencies": {
+    "pako": "^1.0.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.2.2",
+    "webpack": "^2.2.1"
+  }
+}
