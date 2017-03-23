@@ -1,32 +1,32 @@
 import pako from 'pako';
 
-function pakoCompress(str, options) {
-  return pako.deflateRaw(str, {
-    level: 9,
+function pakoCompress(data, options) {
+  return pako.deflateRaw(data, {
+    level: pako.Z_BEST_COMPRESSION,
     memLevel: 9,
-    ...options,
     to: 'string',
+    ...options,
   });
 }
 
-function pakoDecompress(str, options) {
-  return pako.inflateRaw(str, {
-    ...options,
+function pakoDecompress(data, options) {
+  return pako.inflateRaw(data, {
     to: 'string',
+    ...options,
   });
 }
 
-export function compress(str) {
-  return pakoCompress(str);
+export function compress(data) {
+  return pakoCompress(data);
 }
 
-export function decompress(str) {
-  return pakoDecompress(str);
+export function decompress(data) {
+  return pakoDecompress(data);
 }
 
-export function withOptions(options) {
+export function withOptions({ compress: compressOptions, decompress: decompressOptions } = {}) {
   return {
-    compress: (str) => pakoCompress(str, options),
-    decompress: (str) => pakoDecompress(str, options),
+    compress: (data) => pakoCompress(data, compressOptions),
+    decompress: (data) => pakoDecompress(data, decompressOptions),
   };
 }
